@@ -1,0 +1,14 @@
+build/
+.gradle/
+.idea/
+*.iml
+run/
+out/
+.classpath
+.project
+.settings/
+.DS_Store
+crop_preview_sheet*.png
+seed_preview_sheet.png
+seed_final_magic.png
+flower_preview_sheet.png

@@ -1,0 +1,18 @@
+[
+    {
+        "modid": "cropsnhext",
+        "name": "CropsNH Extension",
+        "description": "Adds endgame mineral crops to CropsNH: Neutronium, Cosmic Neutronium, Infinity, Draconium, Awakened Draconium and Bedrockium.",
+        "version": "${modVersion}",
+        "mcversion": "${minecraftVersion}",
+        "url": "",
+        "updateUrl": "",
+        "authorList": ["ny3a"],
+        "credits": "",
+        "logoFile": "",
+        "dependencies": [
+            "cropsnh",
+            "gregtech"
+        ]
+    }
+]
