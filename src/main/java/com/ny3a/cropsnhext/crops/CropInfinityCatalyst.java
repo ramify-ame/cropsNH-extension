@@ -2,8 +2,12 @@ package com.ny3a.cropsnhext.crops;
 
 import java.awt.Color;
 
+import com.gtnewhorizon.cropsnh.api.BlockWithMeta;
 import com.gtnewhorizon.cropsnh.api.CropsNHSoilTypes;
 import com.gtnewhorizon.cropsnh.api.ISoilList;
+import com.gtnewhorizon.cropsnh.farming.requirements.BlockUnderRequirement;
+import com.ny3a.cropsnhext.blocks.CropsNHExtBlocks;
+import com.ny3a.cropsnhext.config.CropsNHExtConfig;
 import com.ny3a.cropsnhext.init.CropsNHExtItems;
 
 import gregtech.api.enums.Materials;
@@ -11,7 +15,7 @@ import gregtech.api.enums.VoltageIndex;
 
 /**
  * Avaritia Infinity Catalyst crop. Warm-white iridescent crystal plant, grows the
- * infinity catalyst flower. Requires a UV seed bed, grows on an Infinity block.
+ * infinity catalyst flower. Requires a UV seed bed, grows on the Infinity Catalyst block.
  */
 public class CropInfinityCatalyst extends CropNHExtBase {
 
@@ -20,9 +24,15 @@ public class CropInfinityCatalyst extends CropNHExtBase {
             "infinityCatalyst",
             CropsNHExtItems.flowerInfinityCatalyst,
             Materials.InfinityCatalyst,
-            Materials.Infinity,
+            blockUnder(),
             new Color(0xF0F0F0),
             new Color(0xC8B890));
+    }
+
+    private static BlockUnderRequirement blockUnder() {
+        return BlockUnderRequirement.get("cropsnhext:infinityCatalystUnder")
+            .addBlock(new BlockWithMeta(CropsNHExtBlocks.blockInfinityCatalyst))
+            .addMaterial(Materials.InfinityCatalyst);
     }
 
     @Override
@@ -37,7 +47,7 @@ public class CropInfinityCatalyst extends CropNHExtBase {
 
     @Override
     public int getGrowthDuration() {
-        return 19200;
+        return CropsNHExtConfig.getGrowthDuration("infinityCatalyst", 20000);
     }
 
     @Override

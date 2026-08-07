@@ -4,6 +4,8 @@ import com.gtnewhorizon.cropsnh.loaders.gtrecipes.CropBreederFakeRecipeLoader;
 import com.gtnewhorizon.cropsnh.loaders.gtrecipes.CropGeneExtractorFakeRecipeLoader;
 import com.gtnewhorizon.cropsnh.loaders.gtrecipes.CropSynthesizerFakeRecipeLoader;
 import com.gtnewhorizon.cropsnh.loaders.gtrecipes.SeedGeneratorFakeRecipeLoader;
+import com.ny3a.cropsnhext.blocks.CropsNHExtBlocks;
+import com.ny3a.cropsnhext.config.CropsNHExtConfig;
 import com.ny3a.cropsnhext.crops.CropExtender;
 import com.ny3a.cropsnhext.init.CropsNHExtItems;
 import com.ny3a.cropsnhext.recipes.CropsNHExtRecipes;
@@ -11,6 +13,7 @@ import com.ny3a.cropsnhext.recipes.CropsNHExtRecipes;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 /**
  * GTNH extension mod that adds endgame mineral crops to CropsNH
@@ -28,10 +31,16 @@ public class CropsNHExt {
 
     public static final String MODID = "cropsnhext";
     public static final String NAME = "CropsNH Extension";
-    public static final String VERSION = "1.0.0";
+    public static final String VERSION = "1.0.1";
+
+    @Mod.EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        CropsNHExtConfig.load(event.getModConfigurationDirectory());
+    }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
+        CropsNHExtBlocks.init();
         CropsNHExtItems.init();
     }
 

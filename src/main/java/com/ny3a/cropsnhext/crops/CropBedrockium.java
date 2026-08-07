@@ -2,10 +2,16 @@ package com.ny3a.cropsnhext.crops;
 
 import java.awt.Color;
 
+import net.minecraft.block.Block;
+
+import com.gtnewhorizon.cropsnh.api.BlockWithMeta;
 import com.gtnewhorizon.cropsnh.api.CropsNHSoilTypes;
 import com.gtnewhorizon.cropsnh.api.ISoilList;
+import com.gtnewhorizon.cropsnh.farming.requirements.BlockUnderRequirement;
+import com.ny3a.cropsnhext.config.CropsNHExtConfig;
 import com.ny3a.cropsnhext.init.CropsNHExtItems;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.VoltageIndex;
 
@@ -19,13 +25,24 @@ public class CropBedrockium extends CropNHExtBase {
             "bedrockium",
             CropsNHExtItems.flowerBedrockium,
             Materials.Bedrockium,
+            blockUnder(),
             new Color(0x6E6E6E),
             new Color(0x2E2E2E));
     }
 
+    private static BlockUnderRequirement blockUnder() {
+        BlockUnderRequirement under = BlockUnderRequirement.get("cropsnhext:bedrockiumUnder")
+            .addMaterial(Materials.Bedrockium);
+        Block exuBedrockium = GameRegistry.findBlock("ExtraUtilities", "block_bedrockium");
+        if (exuBedrockium != null) {
+            under.addBlock(new BlockWithMeta(exuBedrockium));
+        }
+        return under;
+    }
+
     @Override
     public int getTier() {
-        return 13;
+        return 15;
     }
 
     @Override
@@ -35,7 +52,7 @@ public class CropBedrockium extends CropNHExtBase {
 
     @Override
     public int getGrowthDuration() {
-        return 12000;
+        return CropsNHExtConfig.getGrowthDuration("bedrockium", 20000);
     }
 
     @Override

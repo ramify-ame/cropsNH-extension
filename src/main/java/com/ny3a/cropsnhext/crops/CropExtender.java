@@ -27,7 +27,8 @@ public class CropExtender {
             .register();
         new CropMutation(draconium, CropsNHCrops.Iridine, CropsNHCrops.Platina).machineOnly()
             .register();
-        new CropMutation(bedrockium, CropsNHCrops.Micadia, CropsNHCrops.Transformium).machineOnly()
+        // bedrockium = diareed (diamond sugar cane) x stone lily
+        new CropMutation(bedrockium, CropsNHCrops.Diareed, CropsNHCrops.StoneLily).machineOnly()
             .register();
         new CropMutation(cosmicNeutronium, neutronium, CropsNHCrops.Stargatium).machineOnly()
             .register();

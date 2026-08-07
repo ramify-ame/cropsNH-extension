@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import com.gtnewhorizon.cropsnh.api.CropsNHSoilTypes;
 import com.gtnewhorizon.cropsnh.api.ISoilList;
+import com.ny3a.cropsnhext.config.CropsNHExtConfig;
 import com.ny3a.cropsnhext.init.CropsNHExtItems;
 
 import gregtech.api.enums.Materials;
@@ -36,12 +37,12 @@ public class CropAwakenedDraconium extends CropNHExtBase {
 
     @Override
     public int getGrowthDuration() {
-        return 19200;
+        return CropsNHExtConfig.getGrowthDuration("awakenedDraconium", 20000);
     }
 
     @Override
     public int getMinSeedBedTier() {
-        return 9;
+        return 8;
     }
 
     @Override

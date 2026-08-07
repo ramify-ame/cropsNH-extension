@@ -31,16 +31,26 @@ public abstract class CropNHExtBase extends NHCropCard {
 
     public CropNHExtBase(String internalId, Item flower, Materials material, Materials blockUnderMaterial,
         Color primarySeedColor, Color secondarySeedColor) {
+        this(
+            internalId,
+            flower,
+            material,
+            BlockUnderRequirement.get("cropsnhext:" + internalId + "Under")
+                .addMaterial(blockUnderMaterial),
+            primarySeedColor,
+            secondarySeedColor);
+    }
+
+    public CropNHExtBase(String internalId, Item flower, Materials material, BlockUnderRequirement blockUnder,
+        Color primarySeedColor, Color secondarySeedColor) {
         super(internalId, primarySeedColor, secondarySeedColor);
         this.addLikedBiomes(BiomeDictionary.Type.END, BiomeDictionary.Type.DRY);
 
         // the crop grows a flower, which is then crafted into the material
         this.addDrop(new ItemStack(flower), 100_00);
 
-        // needs the material's own block under the crop sticks
-        this.addBlockUnderRequirement(
-            BlockUnderRequirement.get("cropsnhext:" + internalId + "Under")
-                .addMaterial(blockUnderMaterial));
+        // needs the given block(s) under the crop sticks
+        this.addBlockUnderRequirement(blockUnder);
 
         // machine-only, like spaceFlower
         this.addGrowthRequirement(new MachineOnlyGrowthRequirement());

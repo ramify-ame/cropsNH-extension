@@ -1,8 +1,10 @@
 package com.ny3a.cropsnhext.recipes;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import com.ny3a.cropsnhext.blocks.CropsNHExtBlocks;
 import com.ny3a.cropsnhext.init.CropsNHExtItems;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -21,7 +23,6 @@ public final class CropsNHExtRecipes {
 
     public static void register() {
         registerLCRRecipes();
-        registerCraftingRecipes();
         registerCompressorRecipes();
         registerDTPFRecipes();
     }
@@ -30,66 +31,121 @@ public final class CropsNHExtRecipes {
      * Large Chemical Reactor recipes.
      */
     private static void registerLCRRecipes() {
-        // 4x bedrockium flower + 2000L phthalic acid -> 8x bedrockium dust (2000 EU/t, 10s)
+        // 4x neutronium flower + 4000L phthalic acid -> 1152L molten neutronium (1,966,080 EU/t, 100s)
+        GTValues.RA.stdBuilder()
+            .itemInputs(new ItemStack(CropsNHExtItems.flowerNeutronium, 4))
+            .fluidInputs(Materials.PhthalicAcid.getFluid(4000))
+            .fluidOutputs(Materials.Neutronium.getMolten(1152))
+            .circuit(24)
+            .duration(200)
+            .eut(1966080)
+            .addTo(RecipeMaps.multiblockChemicalReactorRecipes);
+        // 4x cosmicneutronium flower + 4000L phthalic acid -> 1152L molten cosmicneutronium (1,966,080 EU/t, 100s)
+        GTValues.RA.stdBuilder()
+            .itemInputs(new ItemStack(CropsNHExtItems.flowerCosmicNeutronium, 4))
+            .fluidInputs(Materials.PhthalicAcid.getFluid(4000))
+            .fluidOutputs(Materials.CosmicNeutronium.getMolten(1152))
+            .circuit(24)
+            .duration(200)
+            .eut(1966080)
+            .addTo(RecipeMaps.multiblockChemicalReactorRecipes);
+        // 4x bedrockium flower + 2000L phthalic acid -> 8x bedrockium dust (7680 EU/t, 10s)
         GTValues.RA.stdBuilder()
             .itemInputs(new ItemStack(CropsNHExtItems.flowerBedrockium, 4))
             .fluidInputs(Materials.PhthalicAcid.getFluid(2000))
             .itemOutputs(Materials.Bedrockium.getDust(8))
             .duration(200)
-            .eut(2000)
+            .eut(7680)
             .addTo(RecipeMaps.multiblockChemicalReactorRecipes);
-
-        // 4x neutronium flower + 4000L phthalic acid -> 1152L molten neutronium (2,000,000 EU/t, 90s)
+        // 4x cosmicneutronium flower + 2000L phthalic acid -> 8x cosmicneutronium dust (30,720 EU/t, 10s)
+        GTValues.RA.stdBuilder()
+            .itemInputs(new ItemStack(CropsNHExtItems.flowerCosmicNeutronium, 4))
+            .fluidInputs(Materials.PhthalicAcid.getFluid(2000))
+            .itemOutputs(Materials.CosmicNeutronium.getDust(8))
+            .duration(200)
+            .eut(30720)
+            .addTo(RecipeMaps.multiblockChemicalReactorRecipes);
+        // 4x neutronium flower + 2000L phthalic acid -> 8x neutroniumdust (30,720 EU/t, 10s)
         GTValues.RA.stdBuilder()
             .itemInputs(new ItemStack(CropsNHExtItems.flowerNeutronium, 4))
-            .fluidInputs(Materials.PhthalicAcid.getFluid(4000))
-            .fluidOutputs(Materials.Neutronium.getMolten(1152))
-            .duration(1800)
-            .eut(2000000)
+            .fluidInputs(Materials.PhthalicAcid.getFluid(2000))
+            .itemOutputs(Materials.Neutronium.getDust(8))
+            .duration(200)
+            .eut(30720)
             .addTo(RecipeMaps.multiblockChemicalReactorRecipes);
-    }
+        // 4x infinity catalyst flower + 2000L phthalic acid -> 8x infinity catalyst dust (30,720 EU/t, 10s)
+        GTValues.RA.stdBuilder()
+            .itemInputs(new ItemStack(CropsNHExtItems.flowerInfinityCatalyst, 4))
+            .fluidInputs(Materials.PhthalicAcid.getFluid(2000))
+            .itemOutputs(Materials.InfinityCatalyst.getDust(8))
+            .duration(200)
+            .eut(30720)
+            .addTo(RecipeMaps.multiblockChemicalReactorRecipes);
+        // 4x infinity catalyst flower + 1x space flower + 2000L phthalic acid -> 32x infinity catalyst dust (4x)
+        Item spaceFlower = GameRegistry.findItem("cropsnh", "materialLeaf");
+        if (spaceFlower != null) {
+            GTValues.RA.stdBuilder()
+                .itemInputs(new ItemStack(CropsNHExtItems.flowerInfinityCatalyst, 4), new ItemStack(spaceFlower, 1, 17))
+                .fluidInputs(Materials.PhthalicAcid.getFluid(2000))
+                .itemOutputs(Materials.InfinityCatalyst.getDust(32))
+                .circuit(1)
+                .duration(100)
+                .eut(122880)
+                .addTo(RecipeMaps.multiblockChemicalReactorRecipes);
+        }
+        // 4x Draconium flower + 2000L phthalic acid -> 8x Draconium dust (7680 EU/t, 10s)
+        GTValues.RA.stdBuilder()
+            .itemInputs(new ItemStack(CropsNHExtItems.flowerDraconium, 4))
+            .fluidInputs(Materials.PhthalicAcid.getFluid(2000))
+            .itemOutputs(Materials.Draconium.getDust(8))
+            .duration(200)
+            .eut(7680)
+            .addTo(RecipeMaps.multiblockChemicalReactorRecipes);
+        // 4x Draconium flower + 1x dragon egg (not consumed) + 2000L phthalic acid -> 32x Draconium dust (4x)
+        GTValues.RA.stdBuilder()
+            .itemInputs(
+                new ItemStack(CropsNHExtItems.flowerDraconium, 4),
+                new ItemStack(Item.getItemFromBlock(Blocks.dragon_egg), 0))
+            .fluidInputs(Materials.PhthalicAcid.getFluid(2000))
+            .itemOutputs(Materials.Draconium.getDust(32))
+            .circuit(1)
+            .duration(100)
+            .eut(30720)
+            .addTo(RecipeMaps.multiblockChemicalReactorRecipes);
+        // 4x AwakenedDraconium + 2000L phthalic acid -> 8x AwakenedDraconium (30,720 EU/t, 10s)
+        GTValues.RA.stdBuilder()
+            .itemInputs(new ItemStack(CropsNHExtItems.flowerAwakenedDraconium, 4))
+            .fluidInputs(Materials.PhthalicAcid.getFluid(2000))
+            .itemOutputs(Materials.DraconiumAwakened.getDust(8))
+            .duration(200)
+            .eut(30720)
+            .addTo(RecipeMaps.multiblockChemicalReactorRecipes);
+        // 4x AwakenedDraconium flower + 1x dragon heart (not consumed) + 2000L phthalic acid -> 32x AwakenedDraconium
+        // dust (4x)
+        Item dragonHeart = GameRegistry.findItem("DraconicEvolution", "dragonHeart");
+        if (dragonHeart != null) {
+            GTValues.RA.stdBuilder()
+                .itemInputs(new ItemStack(CropsNHExtItems.flowerAwakenedDraconium, 4), new ItemStack(dragonHeart, 0))
+                .fluidInputs(Materials.PhthalicAcid.getFluid(2000))
+                .itemOutputs(Materials.DraconiumAwakened.getDust(32))
+                .circuit(1)
+                .duration(100)
+                .eut(122880)
+                .addTo(RecipeMaps.multiblockChemicalReactorRecipes);
+        }
 
-    /**
-     * Simple shapeless crafting for the material dusts.
-     */
-    private static void registerCraftingRecipes() {
-        // neutronium flower -> neutronium dust
-        GameRegistry
-            .addShapelessRecipe(Materials.Neutronium.getDust(1), new ItemStack(CropsNHExtItems.flowerNeutronium));
-
-        // cosmic neutronium flower -> cosmic neutronium dust
-        GameRegistry.addShapelessRecipe(
-            Materials.CosmicNeutronium.getDust(1),
-            new ItemStack(CropsNHExtItems.flowerCosmicNeutronium));
-
-        // infinity catalyst flower -> infinity catalyst
-        Item catalystItem = GameRegistry.findItem("Avaritia", "Resource");
-        ItemStack catalystStack = catalystItem != null ? new ItemStack(catalystItem, 1, 5)
-            : Materials.InfinityCatalyst.getDust(1);
-        GameRegistry.addShapelessRecipe(catalystStack, new ItemStack(CropsNHExtItems.flowerInfinityCatalyst));
-
-        // draconium flower -> draconium dust
-        GameRegistry.addShapelessRecipe(Materials.Draconium.getDust(1), new ItemStack(CropsNHExtItems.flowerDraconium));
-
-        // awakened draconium flower -> awakened draconium dust
-        GameRegistry.addShapelessRecipe(
-            Materials.DraconiumAwakened.getDust(1),
-            new ItemStack(CropsNHExtItems.flowerAwakenedDraconium));
     }
 
     /**
      * Compressor recipes.
      */
     private static void registerCompressorRecipes() {
-        // 64x infinity flower -> 1x Infinity Catalyst
-        Item catalyst = GameRegistry.findItem("Avaritia", "Resource");
-        ItemStack catalystStack = catalyst != null ? new ItemStack(catalyst, 1, 5)
-            : Materials.InfinityCatalyst.getDust(1);
+        // 9x infinity catalyst ingot -> 1x infinity catalyst block (491520 EU/t, 196 ticks)
         GTValues.RA.stdBuilder()
-            .itemInputs(new ItemStack(CropsNHExtItems.flowerInfinity, 64))
-            .itemOutputs(catalystStack)
-            .duration(300)
-            .eut(480)
+            .itemInputs(Materials.InfinityCatalyst.getIngots(9))
+            .itemOutputs(new ItemStack(CropsNHExtBlocks.blockInfinityCatalyst))
+            .duration(196)
+            .eut(491520)
             .addTo(RecipeMaps.compressorRecipes);
     }
 
@@ -121,7 +177,7 @@ public final class CropsNHExtRecipes {
             .fluidInputs(Materials.ExcitedDTSC.getFluid(9667))
             .fluidOutputs(Materials.DTR.getFluid(19334), Materials.Infinity.getMolten(73728))
             .circuit(3)
-            .duration(32)
+            .duration(625)
             .eut(819200000)
             .metadata(GTRecipeConstants.COIL_HEAT, 13500)
             .addTo(RecipeMaps.plasmaForgeRecipes);
@@ -132,7 +188,7 @@ public final class CropsNHExtRecipes {
             .fluidInputs(Materials.ExcitedDTEC.getFluid(22307))
             .fluidOutputs(Materials.DTR.getFluid(22307), Materials.Infinity.getMolten(36864))
             .circuit(3)
-            .duration(64)
+            .duration(1250)
             .eut(409600000)
             .metadata(GTRecipeConstants.COIL_HEAT, 13500)
             .addTo(RecipeMaps.plasmaForgeRecipes);
@@ -143,7 +199,7 @@ public final class CropsNHExtRecipes {
             .fluidInputs(Materials.ExcitedDTRC.getFluid(50092))
             .fluidOutputs(Materials.DTR.getFluid(25046), Materials.Infinity.getMolten(18432))
             .circuit(2)
-            .duration(128)
+            .duration(2500)
             .eut(204800000)
             .metadata(GTRecipeConstants.COIL_HEAT, 12600)
             .addTo(RecipeMaps.plasmaForgeRecipes);
@@ -154,7 +210,7 @@ public final class CropsNHExtRecipes {
             .fluidInputs(Materials.ExcitedDTRC.getFluid(782))
             .fluidOutputs(Materials.DTR.getFluid(391), Materials.Infinity.getMolten(288))
             .circuit(3)
-            .duration(1)
+            .duration(19)
             .eut(3200000)
             .metadata(GTRecipeConstants.COIL_HEAT, 10800)
             .addTo(RecipeMaps.plasmaForgeRecipes);
@@ -174,7 +230,7 @@ public final class CropsNHExtRecipes {
             .fluidInputs(Materials.ExcitedDTEC.getFluid(889), Materials.Copper.getMolten(589824))
             .fluidOutputs(Materials.DTR.getFluid(889), Materials.CosmicNeutronium.getMolten(1179648))
             .circuit(1)
-            .duration(64)
+            .duration(106)
             .eut(409600000)
             .metadata(GTRecipeConstants.COIL_HEAT, 13500)
             .addTo(RecipeMaps.plasmaForgeRecipes);
@@ -185,7 +241,7 @@ public final class CropsNHExtRecipes {
             .fluidInputs(Materials.ExcitedDTRC.getFluid(2108), Materials.Copper.getMolten(294912))
             .fluidOutputs(Materials.DTR.getFluid(1054), Materials.CosmicNeutronium.getMolten(589824))
             .circuit(1)
-            .duration(128)
+            .duration(213)
             .eut(204800000)
             .metadata(GTRecipeConstants.COIL_HEAT, 12600)
             .addTo(RecipeMaps.plasmaForgeRecipes);
@@ -196,7 +252,7 @@ public final class CropsNHExtRecipes {
             .fluidInputs(Materials.ExcitedDTPC.getFluid(4886), Materials.Copper.getMolten(147456))
             .fluidOutputs(Materials.DTR.getFluid(1221), Materials.CosmicNeutronium.getMolten(294912))
             .circuit(1)
-            .duration(256)
+            .duration(427)
             .eut(102400000)
             .metadata(GTRecipeConstants.COIL_HEAT, 11700)
             .addTo(RecipeMaps.plasmaForgeRecipes);
@@ -207,7 +263,7 @@ public final class CropsNHExtRecipes {
             .fluidInputs(Materials.ExcitedDTCC.getFluid(12486), Materials.Copper.getMolten(73728))
             .fluidOutputs(Materials.DTR.getFluid(1560), Materials.CosmicNeutronium.getMolten(147456))
             .circuit(1)
-            .duration(512)
+            .duration(854)
             .eut(51200000)
             .metadata(GTRecipeConstants.COIL_HEAT, 10800)
             .addTo(RecipeMaps.plasmaForgeRecipes);

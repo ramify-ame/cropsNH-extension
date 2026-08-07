@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import com.gtnewhorizon.cropsnh.api.CropsNHSoilTypes;
 import com.gtnewhorizon.cropsnh.api.ISoilList;
+import com.ny3a.cropsnhext.config.CropsNHExtConfig;
 import com.ny3a.cropsnhext.init.CropsNHExtItems;
 
 import gregtech.api.enums.Materials;
@@ -25,7 +26,7 @@ public class CropNeutronium extends CropNHExtBase {
 
     @Override
     public int getTier() {
-        return 13;
+        return 15;
     }
 
     @Override
@@ -35,7 +36,7 @@ public class CropNeutronium extends CropNHExtBase {
 
     @Override
     public int getGrowthDuration() {
-        return 14400;
+        return CropsNHExtConfig.getGrowthDuration("neutronium", 20000);
     }
 
     @Override

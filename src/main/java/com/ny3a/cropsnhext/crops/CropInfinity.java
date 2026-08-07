@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import com.gtnewhorizon.cropsnh.api.CropsNHSoilTypes;
 import com.gtnewhorizon.cropsnh.api.ISoilList;
+import com.ny3a.cropsnhext.config.CropsNHExtConfig;
 import com.ny3a.cropsnhext.init.CropsNHExtItems;
 
 import gregtech.api.enums.Materials;
@@ -30,7 +31,7 @@ public class CropInfinity extends CropNHExtBase {
 
     @Override
     public int getGrowthDuration() {
-        return 192000;
+        return CropsNHExtConfig.getGrowthDuration("infinity", 200000);
     }
 
     @Override
