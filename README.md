@@ -1,12 +1,12 @@
 # CropsNH Extension
 
 
-A GTNH addon that adds endgame mineral crops to CropsNH. Grow intermediate **flower** items, then process them into dust, ingots and molten metals in GregTech machines.
+A GTNH addon that adds endgame mineral crops to CropsNH.
 
 ### Features
 
-- 7 brand-new endgame crops (magic seed shape, enchanted seeds, machine-only growth, modeled on the SpaceFlower)
-- Configurable growth points (debug config file)
+- 7 brand-new endgame crops
+- Configurable growth points
 - Todo: Large Generating Seed Machine
 
 ### Requirements
@@ -36,11 +36,6 @@ debug {
 
 Higher values grow slower. Restart the game to apply.
 
-### Items & Blocks
-
-- 7 flower items (flowerNeutronium etc.) — crop products, crafted/processed into materials
-- **Infinity Catalyst Block** (`blockInfinityCatalyst`) — compressed from 9 ingots, also one of the soil blocks for the Infinity Catalyst crop
-
 ### Building
 
 ```bash
@@ -55,12 +50,12 @@ Apache License 2.0
 
 ---
 
-一个 GTNH 附属模组，为 CropsNH 添加终局矿物作物。种植中间产物——**花**，再在 GT 机器中加工成粉、锭和熔融金属。
+一个 GTNH 附属模组，为 CropsNH 添加终局矿物作物。
 
 ### 功能
 
-- 7 个全新终局作物（魔种子形状、附魔种子、机器专属种植，仿空间之花模板）
-- 可配置生长点数（debug 配置文件）
+- 7 个全新终局作物
+- 可配置生长点数
 - Todo：大型种子生成机
 
 ### 前置要求
@@ -90,11 +85,6 @@ debug {
 
 数值越大生长越慢。改完重启游戏生效。
 
-### 物品与方块
-
-- 7 种花物品（flowerNeutronium 等）——作物产物，合成/加工成材料
-- **无尽催化剂块**（`blockInfinityCatalyst`）——9 锭压缩而成，同时是无尽催化剂花的垫底方块之一
-
 ### 构建
 
 ```bash
@@ -106,3 +96,4 @@ debug {
 ### 许可
 
 Apache License 2.0
+
