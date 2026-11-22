@@ -2,7 +2,12 @@ plugins {
     id 'com.gtnewhorizons.gtnhconvention'
 }
 
+version = modVersion
+java.toolchain.vendor.unset()
+
 dependencies {
-    implementation rfg.deobf('com.github.GTNewHorizons:CropsNH:2.0.91:dev')
-    implementation rfg.deobf('com.github.GTNewHorizons:GT5-Unofficial:5.09.54.20:dev')
+    // The late mixin targets only CropsNH code and needs no Minecraft remapping.
+    compileOnly(mixinProviderSpec) { transitive = false }
+    implementation rfg.deobf('com.github.GTNewHorizons:CropsNH:2.0.140:dev')
+    implementation rfg.deobf('com.github.GTNewHorizons:GT5-Unofficial:5.09.54.265:dev')
 }

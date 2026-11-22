@@ -5,7 +5,7 @@ import java.awt.Color;
 import com.gtnewhorizon.cropsnh.api.BlockWithMeta;
 import com.gtnewhorizon.cropsnh.api.CropsNHSoilTypes;
 import com.gtnewhorizon.cropsnh.api.ISoilList;
-import com.gtnewhorizon.cropsnh.farming.requirements.BlockUnderRequirement;
+import com.gtnewhorizon.cropsnh.farming.requirements.SubSoilRequirement;
 import com.ny3a.cropsnhext.blocks.CropsNHExtBlocks;
 import com.ny3a.cropsnhext.config.CropsNHExtConfig;
 import com.ny3a.cropsnhext.init.CropsNHExtItems;
@@ -24,13 +24,13 @@ public class CropInfinityCatalyst extends CropNHExtBase {
             "infinityCatalyst",
             CropsNHExtItems.flowerInfinityCatalyst,
             Materials.InfinityCatalyst,
-            blockUnder(),
+            subSoil(),
             new Color(0xF0F0F0),
             new Color(0xC8B890));
     }
 
-    private static BlockUnderRequirement blockUnder() {
-        return BlockUnderRequirement.get("cropsnhext:infinityCatalystUnder")
+    private static SubSoilRequirement subSoil() {
+        return SubSoilRequirement.get("cropsnhext:infinityCatalystUnder")
             .addBlock(new BlockWithMeta(CropsNHExtBlocks.blockInfinityCatalyst))
             .addMaterial(Materials.InfinityCatalyst);
     }

@@ -11,7 +11,7 @@ import com.gtnewhorizon.cropsnh.api.ISeedShape;
 import com.gtnewhorizon.cropsnh.api.PlantRenderShape;
 import com.gtnewhorizon.cropsnh.api.SeedShape;
 import com.gtnewhorizon.cropsnh.crops.abstracts.NHCropCard;
-import com.gtnewhorizon.cropsnh.farming.requirements.BlockUnderRequirement;
+import com.gtnewhorizon.cropsnh.farming.requirements.SubSoilRequirement;
 import com.gtnewhorizon.cropsnh.farming.requirements.growth.MachineOnlyGrowthRequirement;
 
 import gregtech.api.enums.Materials;
@@ -26,22 +26,17 @@ public abstract class CropNHExtBase extends NHCropCard {
 
     public CropNHExtBase(String internalId, Item flower, Materials material, Color primarySeedColor,
         Color secondarySeedColor) {
-        this(internalId, flower, material, material, primarySeedColor, secondarySeedColor);
-    }
-
-    public CropNHExtBase(String internalId, Item flower, Materials material, Materials blockUnderMaterial,
-        Color primarySeedColor, Color secondarySeedColor) {
         this(
             internalId,
             flower,
             material,
-            BlockUnderRequirement.get("cropsnhext:" + internalId + "Under")
-                .addMaterial(blockUnderMaterial),
+            SubSoilRequirement.get("cropsnhext:" + internalId + "Under")
+                .addMaterial(material),
             primarySeedColor,
             secondarySeedColor);
     }
 
-    public CropNHExtBase(String internalId, Item flower, Materials material, BlockUnderRequirement blockUnder,
+    public CropNHExtBase(String internalId, Item flower, Materials material, SubSoilRequirement subSoil,
         Color primarySeedColor, Color secondarySeedColor) {
         super(internalId, primarySeedColor, secondarySeedColor);
         this.addLikedBiomes(BiomeDictionary.Type.END, BiomeDictionary.Type.DRY);
@@ -50,7 +45,7 @@ public abstract class CropNHExtBase extends NHCropCard {
         this.addDrop(new ItemStack(flower), 100_00);
 
         // needs the given block(s) under the crop sticks
-        this.addBlockUnderRequirement(blockUnder);
+        this.addSubSoilRequirement(subSoil);
 
         // machine-only, like spaceFlower
         this.addGrowthRequirement(new MachineOnlyGrowthRequirement());

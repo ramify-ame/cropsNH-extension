@@ -6,6 +6,14 @@ cropsnh_crops.draconium=Draconium
 cropsnh_crops.awakenedDraconium=Awakened Draconium
 cropsnh_crops.bedrockium=Bedrockium
 
+cropsnh_growthReq.subSoil.cropsnhext:neutroniumUnder=Requires Neutronium sub-soil
+cropsnh_growthReq.subSoil.cropsnhext:cosmicNeutroniumUnder=Requires Cosmic Neutronium sub-soil
+cropsnh_growthReq.subSoil.cropsnhext:infinityUnder=Requires Infinity sub-soil
+cropsnh_growthReq.subSoil.cropsnhext:infinityCatalystUnder=Requires Infinity Catalyst sub-soil
+cropsnh_growthReq.subSoil.cropsnhext:draconiumUnder=Requires Draconium sub-soil
+cropsnh_growthReq.subSoil.cropsnhext:awakenedDraconiumUnder=Requires Awakened Draconium sub-soil
+cropsnh_growthReq.subSoil.cropsnhext:bedrockiumUnder=Requires Bedrockium sub-soil
+
 item.cropsnhext.flowerNeutronium.name=Neutronium Flower
 item.cropsnhext.flowerCosmicNeutronium.name=Cosmic Neutronium Flower
 item.cropsnhext.flowerInfinity.name=Infinity Flower

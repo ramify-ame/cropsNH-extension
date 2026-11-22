@@ -7,7 +7,7 @@ import net.minecraft.block.Block;
 import com.gtnewhorizon.cropsnh.api.BlockWithMeta;
 import com.gtnewhorizon.cropsnh.api.CropsNHSoilTypes;
 import com.gtnewhorizon.cropsnh.api.ISoilList;
-import com.gtnewhorizon.cropsnh.farming.requirements.BlockUnderRequirement;
+import com.gtnewhorizon.cropsnh.farming.requirements.SubSoilRequirement;
 import com.ny3a.cropsnhext.config.CropsNHExtConfig;
 import com.ny3a.cropsnhext.init.CropsNHExtItems;
 
@@ -25,13 +25,13 @@ public class CropBedrockium extends CropNHExtBase {
             "bedrockium",
             CropsNHExtItems.flowerBedrockium,
             Materials.Bedrockium,
-            blockUnder(),
+            subSoil(),
             new Color(0x6E6E6E),
             new Color(0x2E2E2E));
     }
 
-    private static BlockUnderRequirement blockUnder() {
-        BlockUnderRequirement under = BlockUnderRequirement.get("cropsnhext:bedrockiumUnder")
+    private static SubSoilRequirement subSoil() {
+        SubSoilRequirement under = SubSoilRequirement.get("cropsnhext:bedrockiumUnder")
             .addMaterial(Materials.Bedrockium);
         Block exuBedrockium = GameRegistry.findBlock("ExtraUtilities", "block_bedrockium");
         if (exuBedrockium != null) {

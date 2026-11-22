@@ -4,6 +4,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import com.gtnewhorizon.cropsnh.api.CropsNHItemList;
 import com.ny3a.cropsnhext.blocks.CropsNHExtBlocks;
 import com.ny3a.cropsnhext.init.CropsNHExtItems;
 
@@ -82,17 +83,14 @@ public final class CropsNHExtRecipes {
             .eut(30720)
             .addTo(RecipeMaps.multiblockChemicalReactorRecipes);
         // 4x infinity catalyst flower + 1x space flower + 2000L phthalic acid -> 32x infinity catalyst dust (4x)
-        Item spaceFlower = GameRegistry.findItem("cropsnh", "materialLeaf");
-        if (spaceFlower != null) {
-            GTValues.RA.stdBuilder()
-                .itemInputs(new ItemStack(CropsNHExtItems.flowerInfinityCatalyst, 4), new ItemStack(spaceFlower, 1, 17))
-                .fluidInputs(Materials.PhthalicAcid.getFluid(2000))
-                .itemOutputs(Materials.InfinityCatalyst.getDust(32))
-                .circuit(1)
-                .duration(100)
-                .eut(122880)
-                .addTo(RecipeMaps.multiblockChemicalReactorRecipes);
-        }
+        GTValues.RA.stdBuilder()
+            .itemInputs(new ItemStack(CropsNHExtItems.flowerInfinityCatalyst, 4), CropsNHItemList.spaceFlower.get(1))
+            .fluidInputs(Materials.PhthalicAcid.getFluid(2000))
+            .itemOutputs(Materials.InfinityCatalyst.getDust(32))
+            .circuit(1)
+            .duration(100)
+            .eut(122880)
+            .addTo(RecipeMaps.multiblockChemicalReactorRecipes);
         // 4x Draconium flower + 2000L phthalic acid -> 8x Draconium dust (7680 EU/t, 10s)
         GTValues.RA.stdBuilder()
             .itemInputs(new ItemStack(CropsNHExtItems.flowerDraconium, 4))

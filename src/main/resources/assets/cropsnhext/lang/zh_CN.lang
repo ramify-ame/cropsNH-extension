@@ -6,6 +6,14 @@ cropsnh_crops.draconium=龙
 cropsnh_crops.awakenedDraconium=觉醒龙
 cropsnh_crops.bedrockium=基岩
 
+cropsnh_growthReq.subSoil.cropsnhext:neutroniumUnder=需要中子素底土
+cropsnh_growthReq.subSoil.cropsnhext:cosmicNeutroniumUnder=需要宇宙中子素底土
+cropsnh_growthReq.subSoil.cropsnhext:infinityUnder=需要无尽底土
+cropsnh_growthReq.subSoil.cropsnhext:infinityCatalystUnder=需要无尽催化剂底土
+cropsnh_growthReq.subSoil.cropsnhext:draconiumUnder=需要龙底土
+cropsnh_growthReq.subSoil.cropsnhext:awakenedDraconiumUnder=需要觉醒龙底土
+cropsnh_growthReq.subSoil.cropsnhext:bedrockiumUnder=需要基岩金属底土
+
 item.cropsnhext.flowerNeutronium.name=中子花
 item.cropsnhext.flowerCosmicNeutronium.name=宇宙中子花
 item.cropsnhext.flowerInfinity.name=无尽花

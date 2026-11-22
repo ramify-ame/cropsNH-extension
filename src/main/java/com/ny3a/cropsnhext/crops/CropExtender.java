@@ -7,7 +7,7 @@ import com.gtnewhorizon.cropsnh.farming.registries.CropRegistry;
 
 /**
  * Registers all crops of this addon plus their deterministic breeding recipes.
- * Must run after CropsNH's own postInit (see {@code @Mod dependencies}).
+ * Runs after the built-in parents and mutations exist, before machine recipes are generated.
  */
 public class CropExtender {
 
