@@ -1,5 +1,10 @@
-# CropsNH Extension
+<h1 align="center">CropsNH Extension</h1>
+<p align="center"><strong><em>GTNH社区mod</em></strong></p>
 
+> [!NOTE]
+> 这是一个非官方mod，讨论此mod时请注意场合。
+> **GTNH新手群严禁私货内容讨论。**
+> 
 fork from https://github.com/ny3a/cropsNH-extension
 
 A GTNH addon that adds endgame mineral crops to CropsNH.
