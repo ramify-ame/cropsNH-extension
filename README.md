@@ -26,9 +26,9 @@ A GTNH addon that adds endgame mineral crops to CropsNH.
 
 ### Requirements
 
-- GTNH 2.9.1 (Minecraft 1.7.10, Forge)
+- GTNH 2.9.2 (Minecraft 1.7.10, Forge)
 - CropsNH 2.0.142
-- GregTech 5.09.54.275
+- GregTech 5.09.54.277
 
 ### Configuration
 
@@ -75,9 +75,9 @@ Apache License 2.0
 
 ### 前置要求
 
-- GTNH 2.9.1 (Minecraft 1.7.10, Forge)
+- GTNH 2.9.2 (Minecraft 1.7.10, Forge)
 - CropsNH 2.0.142
-- GregTech 5.09.54.275
+- GregTech 5.09.54.277
 
 ### 配置
 
