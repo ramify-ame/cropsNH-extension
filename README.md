@@ -13,7 +13,8 @@ A GTNH addon that adds endgame mineral crops to CropsNH.
 
 | GTNH Version | Mod Version |      Status       | Download                                                                                                                         |
 |:------------:|:-----------:|:-----------------:|:---------------------------------------------------------------------------------------------------------------------------------|
-|  **2.9.1**   |  `1.0.3`   | ✅ **Recommended** | [Latest](https://github.com/ramify-ame/cropsNH-extension/releases/tag/1.0.3)                                                    |
+|  **2.9.2**   |  `1.0.4`   | ✅ **Recommended** | [Latest](https://github.com/ramify-ame/cropsNH-extension/releases/tag/1.0.4)                                                    |
+|  **2.9.1**   |  `1.0.3`   | ✅ **Recommended** | [1.0.3](https://github.com/ramify-ame/cropsNH-extension/releases/tag/1.0.3)                                                    |
 |  **2.9.0**   |  `1.0.2`   | ✅ **Recommended** | [1.0.2](https://github.com/ramify-ame/cropsNH-extension/releases/tag/1.0.2)                                                     |
 |  **<2.9.0**  |   None      | ❌     EOL         | None                                                                                                                             |
 
